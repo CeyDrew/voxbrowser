@@ -1,0 +1,12 @@
+node_modules/
+dist/
+out/
+.vox-test/
+*.log
+.env
+.env.*
+.claude/
+.claude-flow/
+.swarm/
+.mcp.json*
+CLAUDE.md

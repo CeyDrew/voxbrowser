@@ -1,0 +1,76 @@
+{
+  "name": "voxbrowser",
+  "productName": "VoxBrowser",
+  "version": "0.1.1",
+  "description": "VoxBrowser — Dost tasarım diliyle, Voxi asistanlı masaüstü tarayıcı (Electron/Chromium).",
+  "repository": { "type": "git", "url": "https://github.com/CeyDrew/voxbrowser.git" },
+  "main": "src/main/main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test \"tests/unit/*.test.js\" && node tests/e2e/run.mjs && node tests/e2e/security.mjs",
+    "build": "node scripts/check-syntax.mjs",
+    "icons": "electron scripts/make-icons.js",
+    "test:security": "node tests/e2e/security.mjs",
+    "perf": "node tests/e2e/perf.mjs",
+    "dist": "npm run build && electron-builder --win nsis --x64"
+  },
+  "author": "Abdurrahman Bilici",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "44.9.3",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "com.voxbrowser.app",
+    "productName": "VoxBrowser",
+    "copyright": "VoxBrowser",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "package.json",
+      "src/**/*",
+      "build/icons/**/*"
+    ],
+    "asar": true,
+    "npmRebuild": false,
+    "electronDist": "node_modules/electron/dist",
+    "electronFuses": {
+      "runAsNode": false,
+      "enableCookieEncryption": true,
+      "enableNodeOptionsEnvironmentVariable": false,
+      "enableNodeCliInspectArguments": false,
+      "enableEmbeddedAsarIntegrityValidation": true,
+      "onlyLoadAppFromAsar": true,
+      "loadBrowserProcessSpecificV8Snapshot": false,
+      "grantFileProtocolExtraPrivileges": false
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icons/icon.ico",
+      "artifactName": "VoxBrowser-Kurulum-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowElevation": false,
+      "runAfterFinish": true,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "VoxBrowser",
+      "installerIcon": "build/icons/icon.ico",
+      "uninstallerIcon": "build/icons/icon.ico",
+      "language": "1055",
+      "deleteAppDataOnUninstall": false
+    }
+  }
+}

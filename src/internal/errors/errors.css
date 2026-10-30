@@ -1,0 +1,90 @@
+/* VoxBrowser hata sayfaları (vox://hata) ve çökmüş sekme ekranının ortak düzeni — err- önekli, Dost belirteçleriyle.
+   Arayüz belgesi de bu dosyayı yükler (src/ui/errors/manifest.js). */
+.err-wrap { min-height: 100vh; background: var(--bg); color: var(--text); container-type: inline-size; }
+.err-page { max-width: 980px; margin: 0 auto; padding: clamp(28px, 8vh, 80px) 24px 56px; display: grid; gap: 32px; }
+.err-main { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 40px; align-items: start; }
+.err-art { position: relative; display: grid; place-items: center; padding-top: 6px; animation: vx-pop-in var(--dur-4) var(--ease-spring) backwards; }
+.err-art .err-vx { position: relative; }
+.err-body { display: grid; gap: 14px; justify-items: start; min-width: 0; animation: vx-rise var(--dur-4) var(--ease-out) both; }
+.err-title { font-size: clamp(26px, 4.4cqi, 38px); }
+.err-lead { font-size: var(--fs-lg); color: var(--text-2); max-width: 60ch; overflow-wrap: anywhere; }
+.err-lead b, .err-host { color: var(--text); font-weight: 800; overflow-wrap: anywhere; }
+.err-page code, .err-path { font: 600 .9em var(--font-mono); padding: 1px 7px; border-radius: 8px; background: var(--code-bg); color: var(--text); box-shadow: inset 0 0 0 1px var(--line); overflow-wrap: anywhere; }
+.err-text { color: var(--text-2); max-width: 60ch; font-size: var(--fs-base); }
+.err-tips-h { font-weight: 800; margin-top: 4px; }
+.err-tips { margin: 0; padding-left: 22px; color: var(--text-2); display: grid; gap: 4px; max-width: 64ch; }
+.err-tips li::marker { color: var(--brand); }
+.err-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.err-page a.btn { text-decoration: none; }
+.err-page a.btn--primary:hover { color: var(--on-action); }
+.err-code { font: 600 var(--fs-xs) var(--font-mono); color: var(--text-3); letter-spacing: .02em; overflow-wrap: anywhere; }
+.err-link { display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; background: none; color: var(--action); font-weight: 800; text-decoration: none; cursor: pointer; }
+.err-link:hover { color: var(--action-hover); text-decoration: underline; text-underline-offset: 3px; }
+
+.err-note { display: flex; gap: 12px; align-items: flex-start; max-width: 64ch; padding: 14px 16px; border-radius: var(--r-lg); background: var(--warn-soft); color: var(--honey-text); }
+.err-note > svg { flex: 0 0 auto; margin-top: 1px; }
+.err-note p { min-width: 0; }
+.err-note--info { background: var(--info-soft); color: var(--info); }
+.err-note--danger { background: var(--danger-soft); color: var(--danger-text); }
+.err-note--ok { background: var(--action-soft); color: var(--action-soft-text); animation: vx-pop-in var(--dur-3) var(--ease-spring) both; }
+.err-note-body { display: grid; gap: 10px; justify-items: start; min-width: 0; }
+.err-note-body .btn { margin-top: 2px; }
+
+.err-guess { display: flex; align-items: center; gap: 14px; max-width: 100%; padding: 12px 16px; border-radius: var(--r-lg); background: var(--action-soft); color: var(--action-soft-text); text-decoration: none; border: 2px solid transparent; transition: border-color var(--dur-2), transform var(--dur-2) var(--ease-spring); }
+.err-guess:hover { border-color: var(--brand); color: var(--action-soft-text); transform: translateY(-1px); }
+.err-guess span { display: grid; flex: 1; min-width: 0; }
+.err-guess small { font-size: var(--fs-xs); font-weight: 800; opacity: .85; }
+.err-guess b { font: 700 var(--fs-base) var(--font-mono); overflow-wrap: anywhere; }
+
+/* Sertifika sorunları: kırmızı tonlu vurgu */
+.err-page--danger .err-title { color: var(--danger-text); }
+.err-problem { display: flex; gap: 12px; align-items: flex-start; max-width: 64ch; padding: 14px 16px; border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow-1); border-left: 4px solid var(--danger); }
+.err-problem > svg { flex: 0 0 auto; margin-top: 1px; color: var(--danger); }
+.err-problem b { display: block; margin-bottom: 2px; }
+.err-problem p { color: var(--text-2); }
+.err-problem .err-problem-fact { margin-top: 6px; color: var(--text); font-weight: 800; }
+.err-adv { display: grid; gap: 12px; justify-items: start; max-width: 64ch; padding: 16px 18px; border-radius: var(--r-lg); background: var(--surface-2); color: var(--text-2); animation: vx-pop-in var(--dur-3) var(--ease-out) both; transform-origin: 0 0; }
+.err-certinfo { margin: 0; display: grid; gap: 6px; justify-self: stretch; padding: 12px 14px; border-radius: var(--r-md); background: var(--surface); }
+.err-certinfo div { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 10px; }
+.err-certinfo dt { color: var(--text); font-size: var(--fs-sm); font-weight: 800; }
+.err-certinfo dd { margin: 0; color: var(--text-2); font-size: var(--fs-sm); overflow-wrap: anywhere; user-select: text; }
+.err-certinfo dd.is-mono { font: 500 12px/1.6 var(--font-mono); }
+.err-certinfo dd.is-bad { color: var(--danger-text); font-weight: 800; }
+.err-adv .btn--danger { white-space: normal; height: auto; min-height: 40px; padding-top: 8px; padding-bottom: 8px; text-align: left; }
+
+.err-details { color: var(--text-2); font-size: var(--fs-sm); }
+.err-details summary { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px 4px 4px; border-radius: 10px; font-weight: 800; cursor: pointer; list-style: none; }
+.err-details summary::-webkit-details-marker { display: none; }
+.err-details summary:hover { background: var(--hover); color: var(--text); }
+.err-details-chev { transition: transform var(--dur-2) var(--ease-out); }
+.err-details[open] .err-details-chev { transform: rotate(90deg); }
+.err-details dl { margin: 8px 0 0; padding: 12px 14px; display: grid; gap: 6px; border-radius: var(--r-md); background: var(--surface-2); animation: vx-pop-in var(--dur-2) var(--ease-out) both; }
+.err-details dl div { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 10px; }
+.err-details dt { font-weight: 800; color: var(--text); }
+.err-details dd { margin: 0; font: 500 12px/1.6 var(--font-mono); overflow-wrap: anywhere; user-select: text; }
+
+.err-card { display: grid; gap: 12px; padding: 20px 22px; border-radius: var(--r-xl); background: var(--surface); box-shadow: var(--shadow-1); animation: vx-rise var(--dur-4) var(--ease-out) 120ms both; }
+.err-card-title { display: flex; align-items: center; gap: 8px; font-size: var(--fs-lg); }
+.err-card-title svg { color: var(--action); }
+.err-card-desc { color: var(--text-2); margin-top: -6px; }
+
+/* Çevrimdışı mini oyun */
+.err-game { width: 100%; }
+.err-game-stage { position: relative; display: grid; place-items: center; border-radius: var(--r-lg); background: var(--surface-3); border: 1px solid var(--line); overflow: hidden; cursor: pointer; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
+.err-game-stage:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.err-game-canvas { display: block; }
+.err-game-overlay { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 8px; padding: 12px; text-align: center; pointer-events: none; background: color-mix(in srgb, var(--surface-3) 50%, transparent); animation: vx-fade-in var(--dur-2) var(--ease-out) both; }
+.err-game-result { display: grid; gap: 2px; animation: vx-pop-in var(--dur-3) var(--ease-spring) both; }
+.err-game-result b { font: 600 var(--fs-xl) var(--font-display); }
+.err-game-result span { color: var(--text-2); font-weight: 800; }
+.err-game-hint { color: var(--text-2); font-weight: 700; font-size: var(--fs-sm); }
+.err-game-hint kbd { display: inline-block; padding: 1px 8px; margin-right: 2px; border-radius: 6px; border: 1px solid var(--line); border-bottom-width: 2px; background: var(--surface); color: var(--text); font: 800 11px/18px var(--font-body); }
+
+@container (max-width: 640px) {
+  .err-page { padding: 24px 16px 40px; gap: 24px; }
+  .err-main { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .err-art { justify-self: center; }
+  .err-art .err-vx { width: 132px !important; height: 132px !important; }
+  .err-card { padding: 16px; }
+  .err-certinfo div { grid-template-columns: minmax(0, 1fr); gap: 0; }
+}

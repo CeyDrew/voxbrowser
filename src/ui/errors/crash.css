@@ -1,0 +1,4 @@
+/* Çökmüş sekme ekranı (arayüz belgesi): sayfa alanının içinde durur; ortak err- düzeni errors.css'ten gelir. */
+.err-wrap--crash { min-height: 100%; user-select: text; }
+.err-wrap--crash .err-page { padding-top: clamp(24px, 9vh, 96px); }
+.err-wrap--crash .err-details dd { user-select: text; }

@@ -1,0 +1,31 @@
+/* VoxBrowser — HUD: durum balonu ve bildirimler (sayfanın üstünde, şeffaf zeminde). */
+html, body { margin: 0; height: 100%; background: transparent; overflow: hidden; font: 700 13px/1.4 var(--font-body); }
+#hud { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; }
+
+/* Durum balonu (bağlantı adresi) */
+.status { align-self: flex-start; max-width: calc(100% - 12px); margin: 0 0 4px 4px; padding: 4px 12px; border-radius: 999px; background: var(--surface); color: var(--text-2); box-shadow: var(--shadow-2); border: 1px solid var(--line); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Bildirimler */
+.stack { display: flex; flex-direction: column; gap: 8px; padding: 4px 6px 8px; }
+.toast { display: flex; align-items: center; gap: 10px; min-height: 46px; padding: 6px 6px 6px 16px; border-radius: 999px; background: #18271F; color: #EAF4EC; box-shadow: 0 8px 24px rgb(0 0 0 / .28); animation: in 320ms cubic-bezier(.34,1.56,.64,1) both; }
+.toast.out { animation: out 160ms cubic-bezier(.55,0,1,.45) both; }
+.ic { flex: 0 0 auto; display: grid; place-items: center; color: #F5B83D; }
+.toast.tone-success .ic { color: #34C584; }
+.toast.tone-danger .ic { color: #FF8A75; }
+.text { flex: 1; min-width: 0; }
+.text b { margin-right: 4px; }
+.act { height: 32px; padding: 0 14px; border: 0; border-radius: 999px; background: rgb(245 184 61 / .2); color: #F5B83D; font: 800 13px var(--font-body); cursor: pointer; }
+.x { display: grid; place-items: center; width: 32px; height: 32px; border: 0; border-radius: 50%; background: transparent; color: inherit; opacity: .7; cursor: pointer; }
+.x:hover { opacity: 1; }
+@keyframes in { from { opacity: 0; transform: translateY(14px) scale(.94); } to { opacity: 1; transform: none; } }
+@keyframes out { to { opacity: 0; transform: translateY(8px) scale(.96); } }
+@media (prefers-reduced-motion: reduce) { :root:not([data-motion="full"]) .toast, :root:not([data-motion="full"]) .toast.out { animation-duration: .01ms; } }
+/* Koyu temada bildirim açık renklidir (göze çarpsın); bal rengi açık zeminde okunsun diye koyulaşır */
+@media (prefers-color-scheme: dark) {
+  .toast { background: #EAF4EC; color: #18271F; }
+  .toast .x { color: #18271F; }
+  .ic { color: #9A5B00; }
+  .toast.tone-success .ic { color: #04774A; }
+  .toast.tone-danger .ic { color: #B3261E; }
+  .act { background: rgb(245 184 61 / .32); color: #6B4200; }
+}

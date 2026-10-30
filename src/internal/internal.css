@@ -1,0 +1,11 @@
+/* VoxBrowser — iç sayfaların ortak zemini. */
+html, body { height: auto; min-height: 100%; }
+body { overflow: auto; background: var(--bg); }
+#vox-app { min-height: 100vh; }
+.int-notfound { display: grid; gap: 14px; justify-items: center; text-align: center; max-width: 560px; margin: 14vh auto; padding: 0 24px; }
+.int-notfound h1 { font-size: var(--fs-3xl); }
+.int-notfound p { color: var(--text-2); }
+.int-notfound code { font-family: var(--font-mono); font-size: var(--fs-sm); background: var(--surface-2); padding: 2px 8px; border-radius: 8px; overflow-wrap: anywhere; }
+.int-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+a.btn { text-decoration: none; }
+.int-search { width: min(560px, 100%); }

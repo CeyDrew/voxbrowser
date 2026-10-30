@@ -1,0 +1,252 @@
+/* VoxBrowser · "Dost" tasarım dili — tasarım belirteçleri
+   Layout concept: a calm desktop holding one friendly, rounded browser window;
+   the chrome is a soft green tint, content sits on white, Voxi speaks in honey. */
+
+:root {
+  color-scheme: light;
+
+  /* Marka (sabit) */
+  --brand-1: #049F61;
+  --brand-2: #04AF61;
+  --brand: #04A761;
+  --brand-deep: #049C3E;
+  --brand-tile: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+  --honey: #F5B83D;
+
+  /* Nötrler + roller — açık tema */
+  --bg: #F4F8F2;            /* sayfa zemini */
+  --desk: #DCE9D9;          /* masaüstü */
+  --chrome: #E5EFE3;        /* sekme şeridi + araç çubuğu */
+  --chrome-hover: #D9E7D7;
+  --tab-active: #FFFFFF;
+  --field: #FFFFFF;         /* adres çubuğu, giriş alanları */
+  --field-border: #C9D8C7;
+  --surface: #FFFFFF;
+  --surface-2: #E7F0E6;
+  --surface-3: #F7FAF6;
+  --hover: rgba(24, 39, 31, 0.06);
+  --press: rgba(24, 39, 31, 0.10);
+  --line: #D3E0D1;
+  --line-strong: #7E8F84;   /* ≥3:1 bileşen sınırı */
+  --text: #18271F;
+  --text-2: #4D6056;
+  --text-3: #627469;
+  --action: #04774A;        /* metin-güvenli yeşil */
+  --action-hover: #035F3B;
+  --on-action: #FFFFFF;
+  --on-danger: #FFFFFF;
+  --action-soft: #E2F1E6;
+  --action-soft-text: #04603C;
+  --honey-soft: #FFF1D1;
+  --honey-text: #7A5200;
+  --danger: #C2412D;
+  --danger-soft: #FCE8E4;
+  --danger-text: #9E2F1E;
+  --warn: #B86E00;
+  --warn-soft: #FFF1D1;
+  --info: #2867B2;
+  --info-soft: #E6EEF9;
+  --focus: #04A761;
+  --scrim: rgba(16, 25, 20, 0.38);
+  --selection: rgba(4, 167, 97, 0.22);
+  --code-bg: #F2F6F1;
+
+  /* Gölgeler */
+  --shadow-rgb: 24 39 31;
+  --shadow-1: 0 1px 2px rgb(var(--shadow-rgb) / 0.08), 0 4px 12px rgb(var(--shadow-rgb) / 0.06);
+  --shadow-2: 0 1px 2px rgb(var(--shadow-rgb) / 0.08), 0 6px 16px rgb(var(--shadow-rgb) / 0.08);
+  --shadow-3: 0 2px 4px rgb(var(--shadow-rgb) / 0.08), 0 12px 32px rgb(var(--shadow-rgb) / 0.14);
+  --shadow-4: 0 8px 16px rgb(var(--shadow-rgb) / 0.10), 0 24px 64px rgb(var(--shadow-rgb) / 0.22);
+
+  /* Yazı */
+  --font-display: 'Fredoka', 'Nunito', system-ui, sans-serif;
+  --font-body: 'Nunito', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --fs-xs: 12px;
+  --fs-sm: 13px;
+  --fs-md: 14px;
+  --fs-base: 15px;
+  --fs-lg: 17px;
+  --fs-xl: 20px;
+  --fs-2xl: 26px;
+  --fs-3xl: 34px;
+  --fs-4xl: 44px;
+
+  /* Şekil + boşluk */
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 16px;
+  --r-lg: 20px;
+  --r-xl: 24px;
+  --r-2xl: 28px;
+  --r-pill: 999px;
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+
+  /* Ölçüler (yoğunluk ile değişir) */
+  --tab-h: 40px;
+  --toolbar-h: 60px;
+  --icon-btn: 40px;
+  --addr-h: 48px;
+  --bookmarks-h: 36px;
+  --taskbar-h: 52px;
+
+  /* Hareket */
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+  --ease-in: cubic-bezier(.55, 0, 1, .45);
+  --dur-1: 120ms;
+  --dur-2: 200ms;
+  --dur-3: 320ms;
+  --dur-4: 520ms;
+
+  /* Katmanlar */
+  --z-chrome: 10;
+  --z-panel: 20;
+  --z-overlay: 1000;
+  --z-toast: 1100;
+  --z-tooltip: 1200;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-vox-theme="light"]) {
+    color-scheme: dark;
+    --desk: #0A110D;
+    --bg: #101914;
+    --chrome: #0D1611;
+    --chrome-hover: #18251E;
+    --tab-active: #22332A;
+    --field: #17231C;
+    --field-border: #5A7063;
+    --surface: #17231C;
+    --surface-2: #1F2E25;
+    --surface-3: #131E18;
+    --hover: rgba(234, 244, 236, 0.07);
+    --press: rgba(234, 244, 236, 0.12);
+    --line: #2C3D33;
+    --line-strong: #6E8578;
+    --text: #EAF4EC;
+    --text-2: #A5B8AB;
+    --text-3: #8A9C90;
+    --action: #34C584;
+    --action-hover: #5AD39C;
+    --on-action: #08140E;
+    --on-danger: #1A0A07;
+    --action-soft: #1B3B2A;
+    --action-soft-text: #7FE0B0;
+    --honey-soft: #3A2E12;
+    --honey-text: #F5C96A;
+    --danger: #FF8A75;
+    --danger-soft: #3A1C17;
+    --danger-text: #FFB3A6;
+    --warn: #F5B83D;
+    --warn-soft: #3A2E12;
+    --info: #8DB8F2;
+    --info-soft: #182A40;
+    --focus: #34C584;
+    --scrim: rgba(0, 0, 0, 0.55);
+    --selection: rgba(52, 197, 132, 0.28);
+    --code-bg: #0F1813;
+    --shadow-rgb: 0 0 0;
+    --shadow-1: 0 1px 2px rgb(0 0 0 / 0.30), 0 4px 12px rgb(0 0 0 / 0.22);
+    --shadow-2: 0 1px 2px rgb(0 0 0 / 0.32), 0 6px 16px rgb(0 0 0 / 0.28);
+    --shadow-3: 0 2px 4px rgb(0 0 0 / 0.34), 0 12px 32px rgb(0 0 0 / 0.42);
+    --shadow-4: 0 8px 16px rgb(0 0 0 / 0.40), 0 24px 64px rgb(0 0 0 / 0.55);
+  }
+}
+
+:root[data-theme="dark"]:not([data-vox-theme="light"]),
+:root[data-vox-theme="dark"] {
+  color-scheme: dark;
+  --desk: #0A110D;
+  --bg: #101914;
+  --chrome: #0D1611;
+  --chrome-hover: #18251E;
+  --tab-active: #22332A;
+  --field: #17231C;
+  --field-border: #5A7063;
+  --surface: #17231C;
+  --surface-2: #1F2E25;
+  --surface-3: #131E18;
+  --hover: rgba(234, 244, 236, 0.07);
+  --press: rgba(234, 244, 236, 0.12);
+  --line: #2C3D33;
+  --line-strong: #6E8578;
+  --text: #EAF4EC;
+  --text-2: #A5B8AB;
+  --text-3: #8A9C90;
+  --action: #34C584;
+  --action-hover: #5AD39C;
+  --on-action: #08140E;
+  --on-danger: #1A0A07;
+  --action-soft: #1B3B2A;
+  --action-soft-text: #7FE0B0;
+  --honey-soft: #3A2E12;
+  --honey-text: #F5C96A;
+  --danger: #FF8A75;
+  --danger-soft: #3A1C17;
+  --danger-text: #FFB3A6;
+  --warn: #F5B83D;
+  --warn-soft: #3A2E12;
+  --info: #8DB8F2;
+  --info-soft: #182A40;
+  --focus: #34C584;
+  --scrim: rgba(0, 0, 0, 0.55);
+  --selection: rgba(52, 197, 132, 0.28);
+  --code-bg: #0F1813;
+  --shadow-rgb: 0 0 0;
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.30), 0 4px 12px rgb(0 0 0 / 0.22);
+  --shadow-2: 0 1px 2px rgb(0 0 0 / 0.32), 0 6px 16px rgb(0 0 0 / 0.28);
+  --shadow-3: 0 2px 4px rgb(0 0 0 / 0.34), 0 12px 32px rgb(0 0 0 / 0.42);
+  --shadow-4: 0 8px 16px rgb(0 0 0 / 0.40), 0 24px 64px rgb(0 0 0 / 0.55);
+}
+
+/* Sıkı yoğunluk (Ayarlar › Görünüm) */
+[data-density="compact"] {
+  --tab-h: 34px;
+  --toolbar-h: 50px;
+  --icon-btn: 34px;
+  --addr-h: 40px;
+  --bookmarks-h: 32px;
+}
+
+/* Gizli pencere: yalnızca pencere çerçevesi koyulaşır, içerik aynı kalır */
+.win.is-private .chrome-top {
+  --chrome: #14241C;
+  --chrome-hover: #1E3328;
+  --tab-active: #284236;
+  --field: #1C3027;
+  --field-border: #5A7063;
+  --hover: rgba(234, 244, 236, 0.08);
+  --press: rgba(234, 244, 236, 0.14);
+  --line: #2E463A;
+  --text: #EEF6F0;
+  --text-2: #B3C6B9;
+  --text-3: #93A89A;
+  --action: #F5B83D;
+  --action-hover: #F7C65E;
+  --on-action: #2A1D00;
+  --action-soft: #3A2E12;
+  --action-soft-text: #F5C96A;
+  --focus: #F5B83D;
+  /* Koyu çerçevenin içindeki yüzeyler de koyu kalsın (açık temada bile) */
+  --surface: #1A2C23;
+  --surface-2: #22382D;
+  --surface-3: #16251D;
+  --line-strong: #6E8578;
+  --honey-soft: #3A2E12;
+  --honey-text: #F5C96A;
+  --danger: #FF8A75;
+  --danger-soft: #3A1C17;
+  --danger-text: #FFB3A6;
+  --on-danger: #1A0A07;
+  --warn-soft: #3A2E12;
+  --selection: rgba(245, 184, 61, 0.28);
+  color: var(--text);
+}

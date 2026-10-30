@@ -1,0 +1,67 @@
+/* Voxi çizimi (err-vx-*) — vox://hata sayfaları ve arayüzdeki çökmüş sekme ekranı aynı dosyayı kullanır. */
+.err-vx { --vx-face: light-dark(#FFFFFF, #E8F3EA); --vx-line: #04A761; --vx-eye: light-dark(#04603C, #04774A); flex: 0 0 auto; }
+.err-vx svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.err-vx-shadow { fill: var(--line); transform-box: fill-box; transform-origin: center; animation: err-shadow 3.2s var(--ease-in-out) infinite; }
+.err-vx-bob { animation: err-bob 3.2s var(--ease-in-out) infinite; }
+.err-vx-stem { stroke: var(--vx-line); stroke-width: 6; stroke-linecap: round; }
+.err-vx-bulb { fill: var(--honey); animation: err-glow 2.4s var(--ease-in-out) infinite; }
+.err-vx-line > * { fill: var(--vx-line); stroke: var(--vx-line); stroke-width: 9; stroke-linejoin: round; }
+.err-vx-fill > * { fill: var(--vx-face); }
+.err-vx-cheek { fill: var(--honey); opacity: .38; }
+.err-vx-eye { fill: var(--vx-eye); }
+.err-vx-glint { fill: #FFFFFF; }
+.err-vx--curious .err-vx-eyes, .err-vx--worried .err-vx-eyes { transform-box: fill-box; transform-origin: center; animation: err-blink 5.2s infinite; }
+.err-vx-brow, .err-vx-lid, .err-vx-mouth { fill: none; stroke: var(--vx-eye); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.err-vx-mouth-o { fill: var(--vx-eye); }
+.err-vx-tear, .err-vx-sweat { fill: #6CB8F0; }
+.err-vx-tear { animation: err-tear 2.8s var(--ease-in) infinite; }
+.err-vx-q { font: 700 34px var(--font-display); fill: var(--honey); }
+.err-vx-q2 { fill: var(--brand); font-size: 26px; }
+.err-vx-q3 { fill: var(--brand); font-size: 22px; }
+.err-vx-z { font: 700 22px var(--font-display); fill: var(--text-3); }
+.err-vx-z2 { font-size: 16px; }
+.err-vx-float1 { animation: err-float 3s var(--ease-in-out) infinite; }
+.err-vx-float2 { animation: err-float 3s var(--ease-in-out) -1.5s infinite; }
+.err-vx-handle { stroke: light-dark(#5E4A3A, #B89A80); stroke-width: 9; stroke-linecap: round; }
+.err-vx-glass { fill: rgb(141 200 255 / .35); stroke: var(--vx-line); stroke-width: 6; }
+.err-vx-shine { fill: none; stroke: #FFFFFF; stroke-width: 3; stroke-linecap: round; }
+.err-vx-sweep { transform-box: view-box; transform-origin: 176px 166px; animation: err-sweep 4s var(--ease-in-out) infinite; }
+.err-vx-map { fill: #FFF1D1; stroke: #C99A3B; stroke-width: 2.5; stroke-linejoin: round; }
+.err-vx-map-fold { stroke: #E4C88B; stroke-width: 2; }
+.err-vx-route { fill: none; stroke: #04A761; stroke-width: 2.5; stroke-dasharray: 4 4; stroke-linecap: round; }
+.err-vx-x { stroke: #C2412D; stroke-width: 3; stroke-linecap: round; }
+.err-vx-map-g { transform-box: fill-box; transform-origin: 50% 100%; animation: err-wiggle 3.4s var(--ease-in-out) infinite; }
+.err-vx-wiggle { transform-box: fill-box; transform-origin: 50% 0%; animation: err-wiggle 2.8s var(--ease-in-out) infinite; }
+.err-vx-shackle { fill: none; stroke: light-dark(#8D9A93, #B7C4BC); stroke-width: 7; stroke-linecap: round; }
+.err-vx-lockbody { fill: var(--honey); stroke: #C98A12; stroke-width: 3; }
+.err-vx-keyhole { fill: #7A5200; }
+.err-vx-cable { fill: none; stroke: var(--text-2); stroke-width: 5; stroke-linecap: round; }
+.err-vx-plug { fill: var(--text-2); }
+.err-vx-prong, .err-vx-hole { stroke: var(--text-2); stroke-width: 3.5; stroke-linecap: round; }
+.err-vx-socket { fill: var(--surface); stroke: var(--line-strong); stroke-width: 3; }
+.err-vx-spark { fill: none; stroke: var(--honey); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; animation: err-spark 1.2s steps(2, jump-none) infinite; }
+.err-vx-band { fill: #F2C59B; }
+.err-vx-bandpad { fill: #E3A773; }
+.err-vx-banddot { fill: #C98B5A; }
+.err-vx-smoke circle { fill: var(--line-strong); opacity: 0; transform-box: fill-box; transform-origin: center; animation: err-smoke 3s var(--ease-out) infinite; }
+.err-vx-smoke circle:nth-child(2) { animation-delay: .5s; }
+.err-vx-smoke circle:nth-child(3) { animation-delay: 1s; }
+.err-vx-clock { fill: var(--surface); stroke: var(--honey); stroke-width: 5; }
+.err-vx-clock-tick { stroke: var(--line-strong); stroke-width: 3; stroke-linecap: round; }
+.err-vx-hand { stroke: var(--text); stroke-width: 3.5; stroke-linecap: round; }
+.err-vx-hand--m { transform-box: view-box; transform-origin: 166px 56px; animation: err-tick 6s steps(12, end) infinite; }
+.err-vx-hand--h { transform-box: view-box; transform-origin: 166px 56px; animation: err-tick 72s linear infinite; }
+.err-vx-clock-pin { fill: var(--honey); }
+.err-vx-clock-g { transform-box: fill-box; transform-origin: 50% 100%; animation: err-wiggle 3s var(--ease-in-out) infinite; }
+
+@keyframes err-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes err-shadow { 0%, 100% { transform: scaleX(1); opacity: .9; } 50% { transform: scaleX(.84); opacity: .6; } }
+@keyframes err-glow { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+@keyframes err-blink { 0%, 44%, 48%, 100% { transform: scaleY(1); } 46% { transform: scaleY(.12); } }
+@keyframes err-tear { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: 1; } 80% { transform: translateY(14px); opacity: 1; } 100% { transform: translateY(18px); opacity: 0; } }
+@keyframes err-float { 0%, 100% { transform: translateY(0); opacity: 1; } 50% { transform: translateY(-8px); opacity: .55; } }
+@keyframes err-sweep { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-12deg); } }
+@keyframes err-wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-5deg); } 75% { transform: rotate(5deg); } }
+@keyframes err-spark { 0% { opacity: 1; } 50% { opacity: .1; } }
+@keyframes err-smoke { 0% { transform: translateY(8px) scale(.5); opacity: 0; } 30% { opacity: .5; } 100% { transform: translateY(-16px) scale(1.2); opacity: 0; } }
+@keyframes err-tick { to { transform: rotate(360deg); } }
